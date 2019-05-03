@@ -1,0 +1,17 @@
+<li [ngClass]="{'list-group-item': true,
+                'list-group-item-success': postItem.loveIts > 0,
+                'list-group-item-danger': postItem.loveIts < 0}">
+
+  <div class="date">{{ postItem.created_at | date: 'd EEE MMM y' }}</div>
+
+  <h4 [ngStyle]="{color: getColor()}">{{ postItem.title }}</h4>
+
+  <div>{{ postItem.content}}</div>
+
+
+  <div class="votes badge badge-light" [ngStyle]="{color: getColor()}">Votes : {{ postItem.loveIts }}</div>
+
+  <button class="btn btn-success" (click)=upVote() >UpVote</button>
+  <button class="btn btn-danger" (click)=downVote()>Down Vote</button>
+
+</li>
